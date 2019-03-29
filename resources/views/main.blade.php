@@ -11,12 +11,6 @@
 
       @include('partials._messages')
 
-      <div class="row">
-        <div class="col-md-1 col-md-offset-2">
-          <i class="fas fa-atom fa-2x"></i>
-        </div>
-      </div>
-
       @yield('content')
 
     </div><!--end of container-->

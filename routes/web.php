@@ -17,12 +17,18 @@ Route::get('contact', 'PagesController@getContact');
 Route::post('contact', 'PagesController@postContact');
 Route::get('about', 'PagesController@getAbout');
 Route::get('/', 'PagesController@getIndex');
+Route::get('codingLogic', 'CodingLogicController@test');
 
-Route::resource('posts', 'PostController');
+
 
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
 
+Route::resource('posts', 'PostController');
 Route::resource('categories', 'CategoryController', ['except' => ['create']]);
-
 Route::resource('tags', 'TagController', ['except' => ['create']]);
+Route::post('comments/{post_id}', ['as' => 'comments.store', 'uses' => 'CommentsController@store']);
+Route::get('comments/{id}/edit', ['as' => 'comments.edit', 'uses' => 'CommentsController@edit']);
+Route::put('comments/{id}/', ['as' => 'comments.update', 'uses' => 'CommentsController@update']);
+Route::delete('comments/{id}', ['as' => 'comments.destroy', 'uses' => 'CommentsController@destroy']);
+Route::get('comments/{id}/delete', ['as' => 'comments.delete', 'uses' => 'CommentsController@delete']);

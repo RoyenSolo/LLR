@@ -9,6 +9,6 @@ class Category extends Model
     protected $table = 'categories';
 
     public function posts() {
-      return $this->nasMany('App\Post');
+      return $this->hasMany('App\Post');
     }
 }
